@@ -5,7 +5,7 @@ import Test from '@/components/Test'
 import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
 import Testurl from '@/components/TestUrl'
-
+import Error404 from '@/components/error404'
 
 
 
@@ -34,7 +34,14 @@ export default new Router({
         path:'Test2',
         name:'Test2',
         component:Test2
-      }]
+      }],
+    //方法一:钩子函数配置在index.js文件中
+      beforeEnter(to,from,next){
+        console.log(to);//路由将要跳转的路径信息，信息是包含在对象里边的
+        console.log(from);//路径跳转前的路径信息，也是一个对性的形式
+        //因此可以在next()之前加一些判断，判断页面是否可以跳转
+        next();//如果不加next()则页面不会进行跳转或者next(false)也不会跳转        
+      }
     },{
       //params后可加(),括号中表示正则表达式，对参数进行格式要求
       //但是如果没有按照正则表达式进行传参,则会传输失败
@@ -45,6 +52,9 @@ export default new Router({
       // redirect:'/',//redirect对应path
       redirect:'/TestUrl/:userId(\\d+)/:username'//重定向带参数
       // component:HelloWorld
+    },{
+      path:'*',//页面404
+      component:Error404
     }
   ]
 })

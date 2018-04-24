@@ -9,6 +9,18 @@
 
 <script>
     export default{
+      //在模板中调用
+      beforeRouteEnter(to, from, next){
+        console.log('beforRouteEnter');
+        next();
+      },
+      beforeRouteLeave(to, from, next){
+        console.log('beforeRouteLeave');
+        next();
+      },
+      beforeRouteUpdate(to,from,next){
+        
+      }
     }
 </script>
 
