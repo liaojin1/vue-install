@@ -6,6 +6,7 @@ import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
 import Testurl from '@/components/TestUrl'
 import Error404 from '@/components/error404'
+import CountVue from '@/components/Count'
 
 
 
@@ -14,6 +15,10 @@ Vue.use(Router)
 export default new Router({
   mode:'history',//消除path中的#
   routes: [
+    {
+      path:'/ooo',//路径名可以自己起
+      component:CountVue
+    },
     {
       path: '/',
       name: 'HelloWorld',

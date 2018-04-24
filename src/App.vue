@@ -17,6 +17,7 @@
       <router-link to="/TestUrl/5/zhangsan">TestUrl</router-link>
       <router-link to="/home/1/liaojin">home</router-link>
       <router-link to="/abc">alias别名</router-link>
+      <router-link to="/ooo">CountVue</router-link>
       
       <transition name="fade">
         <!-- 给router-view加动态效果如淡入淡出需要在外面套一个transition标签 -->
